@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>YouTube Super Deus</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <div class="bg-glow glow-3"></div>
+
+  <main class="app-shell">
+    <header class="hero">
+      <div class="hero-badge">⚡ Modo Super Deus</div>
+
+      <h1>YouTube Super Deus</h1>
+
+      <p>
+        Pesquisa músicas e vídeos do YouTube com filtro para vídeos públicos,
+        embebíveis e compatíveis com player dentro da aplicação.
+      </p>
+    </header>
+
+    <section class="search-card">
+      <div class="search-row">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Ex: Adele Hello, Rihanna Diamonds, Queen Bohemian Rhapsody..."
+          autocomplete="off"
+        />
+
+        <button id="searchBtn">
+          Pesquisar
+        </button>
+      </div>
+
+      <div class="options-row">
+        <label class="switch-line">
+          <input id="musicOnly" type="checkbox" checked />
+          <span>Apenas categoria Música</span>
+        </label>
+
+        <button id="clearBtn" class="ghost-btn">
+          Limpar
+        </button>
+
+        <button id="healthBtn" class="ghost-btn">
+          Testar API
+        </button>
+      </div>
+
+      <div id="status" class="status-box">
+        Escreve o nome da música ou artista e carrega em pesquisar.
+      </div>
+    </section>
+
+    <section id="playerSection" class="player-section hidden">
+      <div class="player-card">
+        <div class="player-top">
+          <div>
+            <span class="small-label">A tocar agora</span>
+            <h2 id="nowTitle">Nenhum vídeo selecionado</h2>
+            <p id="nowChannel">YouTube</p>
+          </div>
+
+          <a id="openYoutube" href="#" target="_blank" rel="noopener" class="youtube-link">
+            Abrir no YouTube
+          </a>
+        </div>
+
+        <div id="player" class="player-frame">
+          <div class="empty-player">
+            Escolhe um vídeo da lista.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <div class="main-results">
+        <div class="section-title">
+          <h2>Resultados</h2>
+          <span id="resultCount">0 vídeos</span>
+        </div>
+
+        <div id="results" class="results-grid"></div>
+      </div>
+
+      <aside class="side-panel">
+        <div class="panel-card">
+          <div class="section-title compact">
+            <h2>Favoritos</h2>
+            <button id="clearFavs" class="mini-btn">Limpar</button>
+          </div>
+
+          <div id="favorites" class="mini-list"></div>
+        </div>
+
+        <div class="panel-card">
+          <div class="section-title compact">
+            <h2>Histórico</h2>
+            <button id="clearHistory" class="mini-btn">Limpar</button>
+          </div>
+
+          <div id="history" class="mini-list"></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Feito em modo Super Deus · Flask + YouTube API
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
